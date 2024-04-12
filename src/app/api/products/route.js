@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { conn } from '@/libs/mysql'
-import { writeFile, unlink } from 'fs/promises'
+import { unlink } from 'fs/promises'
 import cloudinary from '@/libs/cloudinary'
 import { processImage } from '@/libs/processImage'
 

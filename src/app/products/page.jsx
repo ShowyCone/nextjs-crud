@@ -2,10 +2,16 @@ import ProductCard from '@/components/ProductCard'
 import axios from 'axios'
 
 async function loadProducts() {
-  const { data } = await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}/products`
-  )
-  return data
+  try {
+    console.log(process.env.NEXT_PUBLIC_API_URL)
+    const { data } = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/products`
+    )
+    return data
+  } catch (error) {
+    console.error('Error al cargar los productos:', error.response || error)
+    throw error
+  }
 }
 
 async function ProductsPage() {
